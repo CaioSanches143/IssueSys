@@ -56,7 +56,6 @@ TODO Add constraint regarding team members time
 | CRN-02 | Authentication and authorization is required                                                                                                 |
 | CRN-03 | All features must be tested                                                                                                                  |
 | CRN-04 | Establish a system architecture to implement                                                                                                 |
-                                                                            |
-
+                                                                            
 
 
