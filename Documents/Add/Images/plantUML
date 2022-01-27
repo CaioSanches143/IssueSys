@@ -1,0 +1,43 @@
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+actor SystemAdmin
+actor Developers
+
+
+
+rectangle "Admnistrative"{
+
+usecase "UC-04: SystemAdmin can CRUD User" as CU4
+}
+
+rectangle "System Tools"{
+
+usecase "UC-01: Developers can CRUD Tag" as CU1
+usecase "UC-02: Developers can CRUD Issue" as CU2
+usecase "UC-03: Developers can CRUD Post" as CU3
+usecase "UC-05: Developers can add Tags to Issues" as CU5
+usecase "UC-06: Developers can add Posts to Issues" as CU6
+usecase "UC-07: Developers can add Users to Issues" as CU7
+usecase "UC-08: Developers can add Tags to Posts" as CU8
+usecase "UC-09: Developers and SystemAdmins should login in the system" as CU9
+
+}
+
+SystemAdmin--> CU4
+SystemAdmin--> CU5
+SystemAdmin--> CU6
+SystemAdmin--> CU7
+SystemAdmin--> CU8
+Developers--> CU9
+
+Developers--> CU1
+Developers--> CU2
+Developers--> CU3
+Developers--> CU5
+Developers--> CU6
+Developers--> CU7
+Developers--> CU8
+Developers--> CU9
+@enduml
