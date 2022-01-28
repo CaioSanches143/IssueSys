@@ -10,15 +10,16 @@
 
 TODO Add constraint regarding team members time
 
-| ID    | Constraint                                           | Description |
-| ----- |------------------------------------------------------| ----------- |
-| CON-01 | The project must be accessible via web browser       |             |
+| ID     | Constraint                                            | Description |
+|--------|-------------------------------------------------------| ----------- |
+| CON-01 | The project must be accessible via web browser        |             |
 | CON-02 | Only "open-source" tools and technologies are allowed |             |
-| CON-03 | Application must use Spring                          |             |
-| C0N-04 | Application must use Postgress as Database           |             |
+| CON-03 | Application must use Spring                           |             |
+| C0N-04 | Application must use Postgress as Database            |             |
+| C0N-05 | Mockups should be created and aproved by the team     |             |
 
 ### Quality attributes:
-
+    
 | ID    | Quality attribute | Scenario | Associated use case | Priority |
 |-------| ----------------- | -------- | ------------------- | -------- |
 | QA-01 | Security | Authentication and Authorization are required for the project | All | (H,H) |
