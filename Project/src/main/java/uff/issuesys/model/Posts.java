@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Setter(AccessLevel.PRIVATE)
+@Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class Posts {
