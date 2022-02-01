@@ -2,28 +2,45 @@ package uff.issuesys.model;
 
 import lombok.*;
 import org.apache.commons.lang3.Validate;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 @Data
 @Setter(AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Issue {
+@NoArgsConstructor
+public class Issues {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long issueId;
     private String issueName;
     private String issueDescription;
+    @ManyToMany
+    @JoinTable(
+            name = "IssueTagList",
+            joinColumns = @JoinColumn(name = "issueId"),
+            inverseJoinColumns = @JoinColumn(name = "issueTagId"))
     private List<IssueTagList> tagTagList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "IssuePostList",
+            joinColumns = @JoinColumn(name = "issueId"),
+            inverseJoinColumns = @JoinColumn(name = "issuePostId"))
     private List<IssuePostList> tagPostList;
+
+    @ManyToMany
+    @JoinTable(
+            name = "IssuePostList",
+            joinColumns = @JoinColumn(name = "issueId"),
+            inverseJoinColumns = @JoinColumn(name = "issueUserId"))
     private List<IssueUserList> tagUserList;
 
-    public Issue (String issueName, String issueDescription, IssueTagList issueTag, IssueUserList issueUser){
+    public Issues(String issueName, String issueDescription, IssueTagList issueTag, IssueUserList issueUser){
         Validate.notNull(issueName,"Issue NAME is required.");
         Validate.notNull(issueDescription,"Issue DESCRIPTION is required.");
         Validate.notNull(issueUser,"At least one USER for Issue  is required.");

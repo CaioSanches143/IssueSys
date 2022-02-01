@@ -3,16 +3,19 @@ package uff.issuesys.model;
 import lombok.*;
 import org.apache.commons.lang3.Validate;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
 
-@Data
+
+@Entity
+@NoArgsConstructor
 @Setter(AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class User {
+
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
@@ -22,7 +25,7 @@ public class User {
     private String userName;
 
 
-    public User (String userLogin, String userEmail, String userPassword, String userName){
+    public Users(String userLogin, String userEmail, String userPassword, String userName){
 
         Validate.notNull(userEmail, "Post EMAIL is required.");
         Validate.notNull(userName, "Post NAME is required.");

@@ -1,11 +1,17 @@
 package uff.issuesys.model;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Value;
 
-@Value
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+
+@Entity
 public class IssueUserList {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long issueUserId;
 }

@@ -2,11 +2,15 @@ package uff.issuesys.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Value;
-import org.apache.commons.lang3.Validate;
+import lombok.Data;
 
-@Value
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+import javax.persistence.*;
+
+
+@Entity
 public class IssueTagList {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long issueTagId;
 
 }
