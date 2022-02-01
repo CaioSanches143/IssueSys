@@ -11,6 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Setter(AccessLevel.PRIVATE)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter
 @NoArgsConstructor
 public class Tags {
 

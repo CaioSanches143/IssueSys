@@ -14,4 +14,8 @@ public class TagService {
     public Tags saveTag(Tags tags) {
         return tagRepository.save(tags);
     }
+
+    public Iterable<Tags> getAllTag(){
+        return tagRepository.findAll();
+    }
 }
