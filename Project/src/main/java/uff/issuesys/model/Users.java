@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @Setter(AccessLevel.PRIVATE)
+@Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
 public class Users {
