@@ -10,6 +10,7 @@ import java.util.List;
 @Entity
 @Data
 @Setter(AccessLevel.PRIVATE)
+@Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class Issues {
