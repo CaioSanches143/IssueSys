@@ -6,7 +6,7 @@ import org.apache.commons.lang3.Validate;
 import javax.persistence.*;
 
 @Entity
-@Setter(AccessLevel.PRIVATE)
+@Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Getter
 @NoArgsConstructor
