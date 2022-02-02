@@ -1,5 +1,6 @@
 package uff.issuesys.controller;
 
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -7,7 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import uff.issuesys.model.Tags;
-import uff.issuesys.service.TagService;
+import uff.issuesys.service.*;
 
 @RestController
 @RequestMapping("/Tag")
@@ -19,7 +20,8 @@ public class TagController {
     @Operation(summary = "This request create a new Tag.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "The Tag was created.", content = {@Content(mediaType = "application/json")}),
-            @ApiResponse(responseCode = "404",description = "Service not available.",content = @Content)
+            @ApiResponse(responseCode = "404",description = "Service not available.",content = @Content),
+            @ApiResponse(responseCode = "500",description = "This Tag already exists.",content = @Content)
     })
     @PostMapping("/")
     public Tags saveTag(@RequestBody Tags tags){
