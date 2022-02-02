@@ -4,10 +4,8 @@ import lombok.*;
 import org.apache.commons.lang3.Validate;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -24,6 +22,21 @@ public class Users {
     private String userPassword;
     private String userEmail;
     private String userName;
+
+    @OneToMany
+    @JoinTable(
+            name = "Users_Posts",
+            joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "postId"))
+    private List<Posts> userPostList;
+
+    @OneToMany
+    @JoinTable(
+            name = "Issues_Tags",
+            joinColumns = @JoinColumn(name = "issueId"),
+            inverseJoinColumns = @JoinColumn(name = "issueTagId"))
+    private List<Tags> issueTagList;
+
 
 
     public Users(String userLogin, String userEmail, String userPassword, String userName){

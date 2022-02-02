@@ -4,7 +4,6 @@ import lombok.*;
 import org.apache.commons.lang3.Validate;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,37 +19,45 @@ public class Issues {
     private Long issueId;
     private String issueName;
     private String issueDescription;
-    @ManyToMany
+    @OneToMany
     @JoinTable(
-            name = "IssueTagList",
+            name = "Issues_Tags",
             joinColumns = @JoinColumn(name = "issueId"),
             inverseJoinColumns = @JoinColumn(name = "issueTagId"))
-    private List<IssueTagList> tagTagList;
+    private List<Tags> issueTagList;
 
-    @ManyToMany
+
+    @OneToMany
     @JoinTable(
-            name = "IssuePostList",
+            name = "Issues_Posts",
             joinColumns = @JoinColumn(name = "issueId"),
-            inverseJoinColumns = @JoinColumn(name = "issuePostId"))
-    private List<IssuePostList> tagPostList;
+            inverseJoinColumns = @JoinColumn(name = "postId"))
+    private List<Posts> issuePostList;
 
-    @ManyToMany
+    @OneToMany
     @JoinTable(
-            name = "IssuePostList",
+            name = "Issues_Users",
             joinColumns = @JoinColumn(name = "issueId"),
-            inverseJoinColumns = @JoinColumn(name = "issueUserId"))
-    private List<IssueUserList> tagUserList;
+            inverseJoinColumns = @JoinColumn(name = "userId"))
+    private List<Users> issueUserList;
 
-    public Issues(String issueName, String issueDescription, IssueTagList issueTag, IssueUserList issueUser){
+    public Issues(String issueName, String issueDescription, Long issueUserId, List<Long> issueListTagId){
         Validate.notNull(issueName,"Issue NAME is required.");
         Validate.notNull(issueDescription,"Issue DESCRIPTION is required.");
-        Validate.notNull(issueUser,"At least one USER for Issue  is required.");
+        Validate.notNull(issueUserId,"At least one USER for Issue  is required.");
 
         this.issueName = issueName;
         this.issueDescription = issueDescription;
-        this.tagTagList.add(issueTag);
-        this.tagUserList.add(issueUser);
-        this.tagPostList = new ArrayList<>();
+
+        //buscar tags com os IDs da lista issueListTagId
+        Tags tags = new Tags();
+        this.issueTagList.add(tags);
+
+
+        //buscar usuário com ID issueUserId
+        Users users = new Users();
+        this.issueUserList.add(users);
+
 
     }
 
