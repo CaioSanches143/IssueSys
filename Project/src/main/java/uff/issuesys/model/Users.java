@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@Setter(AccessLevel.PRIVATE)
+@Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 
