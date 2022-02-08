@@ -41,12 +41,7 @@ public class IssueService {
     public Issues editIssue(Issues issue) {
         Issues oldIssue = getIssueById(issue.getIssueId().toString());
         if (oldIssue != null){
-            oldIssue.setIssueName(issue.getIssueName());
-            oldIssue.setIssueDescription(issue.getIssueDescription());
-            oldIssue.setIssueDescription(issue.getIssueDescription());
-            oldIssue.setIssueTagList(issue.getIssueTagList());
-            oldIssue.setIssuePostList(issue.getIssuePostList());
-            oldIssue.setIssueUserList(issue.getIssueUserList());
+            oldIssue = issue;
             return issueRepository.save(oldIssue);
         }
         return null;
