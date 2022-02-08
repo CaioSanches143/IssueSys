@@ -53,7 +53,7 @@ public class IssueController {
             @ApiResponse(responseCode = "500",description = "This Issue does not exist.",content = @Content)
     })
     @PutMapping("/editIssue")
-    public Issues editTag(@RequestBody Issues issue){
+    public Issues editIssue(@RequestBody Issues issue){
         return issueService.editIssue(issue);
     }
     /* **********************************
@@ -66,7 +66,7 @@ public class IssueController {
             @ApiResponse(responseCode = "404",description = "Service not available.",content = @Content)
     })
     @GetMapping("/getAllIssues")
-    public Iterable<Issues> getAllTag(){
+    public Iterable<Issues> getAllIssue(){
         return issueService.getAllTag();
     }
 

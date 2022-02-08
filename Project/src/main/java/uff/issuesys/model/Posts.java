@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
-@Setter(AccessLevel.PRIVATE)
+@Setter
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
