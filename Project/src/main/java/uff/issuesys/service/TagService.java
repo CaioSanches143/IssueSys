@@ -58,8 +58,7 @@ public class TagService {
     public Tags editTag(Tags tags) {
         Tags oldTag = getTagById(tags.getTagId().toString());
         if (oldTag != null){
-            oldTag.setTagName(tags.getTagName());
-            oldTag.setTagDescription(tags.getTagDescription());
+            oldTag = tags;
             return tagRepository.save(oldTag);
         }
         return null;
